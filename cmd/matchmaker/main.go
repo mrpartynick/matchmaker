@@ -1,13 +1,14 @@
 package main
 
 import (
-	"log"
-	"log/slog"
 	"matchmaker/config"
 	"matchmaker/internal/matchmaker"
 	"matchmaker/internal/server"
 	"matchmaker/pkg/logging"
 )
+
+// TODO: Добавить таймер понижения толерантности
+// TODO: Разобраться с логированием
 
 func main() {
 	cfg := config.Load("config.yaml")
@@ -18,7 +19,5 @@ func main() {
 	mm := matchmaker.NewMatchMaker(cfg)
 
 	s := server.New(cfg, mm)
-	log.Println("Running server")
 	s.Run()
-	slog.Debug("Service stopped")
 }
