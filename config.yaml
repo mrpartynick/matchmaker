@@ -1,0 +1,10 @@
+env:
+  env: debug
+server:
+  host: localhost
+  port: 8080
+matchmaker:
+  group_size: 5
+  skill_tolerance: 2
+  latency_tolerance: 100
+
