@@ -16,9 +16,9 @@ type Env struct {
 }
 
 type Matchmaker struct {
-	GroupSize        int `yaml:"group_size" env-default:"5"`
-	SkillTolerance   int `yaml:"skill_tolerance" env-default:"2"`
-	LatencyTolerance int `yaml:"latency_tolerance" env-default:"100"`
+	GroupSize        int     `yaml:"group_size" env-default:"5"`
+	SkillTolerance   float64 `yaml:"skill_tolerance" env-default:"2"`
+	LatencyTolerance float64 `yaml:"latency_tolerance" env-default:"100"`
 }
 
 type Config struct {
@@ -45,8 +45,8 @@ func setDefault(cfg *Config) {
 	e := Env{Env: "debug"}
 	m := Matchmaker{
 		GroupSize:        5,
-		SkillTolerance:   2,
-		LatencyTolerance: 100,
+		SkillTolerance:   2.0,
+		LatencyTolerance: 100.0,
 	}
 	cfg.Server = s
 	cfg.Env = e

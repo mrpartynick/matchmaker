@@ -33,5 +33,6 @@ func MustLoad() *os.File {
 		log.Fatalf("Failed to open log file: %v", err)
 	}
 	log.SetOutput(f)
+	slog.SetLogLoggerLevel(slog.LevelDebug)
 	return f
 }
