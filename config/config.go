@@ -8,7 +8,7 @@ import (
 
 type Server struct {
 	Host string `yaml:"host" env-default:"localhost"`
-	Port int    `yaml:"port" env-default:"8080"`
+	Port string `yaml:"port" env-default:"8080"`
 }
 
 type Env struct {
@@ -40,7 +40,7 @@ func Load(path string) *Config {
 func setDefault(cfg *Config) {
 	s := Server{
 		Host: "localhost",
-		Port: 8080,
+		Port: "8080",
 	}
 	e := Env{Env: "debug"}
 	m := Matchmaker{
