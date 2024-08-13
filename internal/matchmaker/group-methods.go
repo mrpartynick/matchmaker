@@ -3,12 +3,12 @@ package matchmaker
 import (
 	"encoding/json"
 	"fmt"
+	"log/slog"
 	"matchmaker/internal/models"
 	"time"
 )
 
 func (mm *MatchMaker) CreateGroup(usr *models.User) {
-	fmt.Println("Creating group")
 	mm.numberOfGroups++
 	group := models.Group{
 		Number:           mm.numberOfGroups,
@@ -21,6 +21,7 @@ func (mm *MatchMaker) CreateGroup(usr *models.User) {
 		UsersCounter:     1,
 	}
 	mm.groups = append(mm.groups, &group)
+	slog.Debug(fmt.Sprintf("Created group %d", group.Number))
 }
 
 func (mm *MatchMaker) RemoveGroup(i int) []*models.Group {
