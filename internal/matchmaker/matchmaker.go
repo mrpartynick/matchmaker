@@ -47,27 +47,3 @@ func (mm *MatchMaker) Process(usr *models.User) {
 	}
 	mm.CreateGroup(usr)
 }
-
-func (mm *MatchMaker) CreateGroup(usr *models.User) {
-	fmt.Println("Creating group")
-	mm.numberOfGroups++
-	group := models.Group{
-		Number:           mm.numberOfGroups,
-		Skill:            usr.Skill,
-		Latency:          usr.Latency,
-		SkillTolerance:   mm.cfg.SkillTolerance,
-		LatencyTolerance: mm.cfg.LatencyTolerance,
-		Users:            []models.User{*usr},
-		Cap:              mm.cfg.GroupSize,
-		UsersCounter:     1,
-	}
-	mm.groups = append(mm.groups, &group)
-}
-
-func (mm *MatchMaker) RemoveGroup(i int) []*models.Group {
-	return append(mm.groups[:i], mm.groups[i+1:]...)
-}
-
-func (mm *MatchMaker) printGroup(group *models.Group) {
-	fmt.Printf("Group %v: \n", group)
-}
