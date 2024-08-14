@@ -3,7 +3,8 @@
 
   # Содержание 
   1. [Описание дизайна](#Описание-дизайна)
-      [Алтернативное решение](##Альтернативное-решение)
+
+     [Алтернативное решение](##Альтернативное-решение)
 3. [Example2](#example2)
 4. [Third Example](#third-example)
 5. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
